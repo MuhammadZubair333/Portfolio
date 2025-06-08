@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+html {
+  scroll-padding-top: 80px;
+}
+
+.hamburger span {
+  transition: transform 0.35s cubic-bezier(.4,2.08,.55,.44), opacity 0.18s;
+}
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+.side-nav {
+  transition: right 0.35s cubic-bezier(.4,2.08,.55,.44);
+}
+.side-nav.open {
+  right: 0;
+}
+.close-btn {
+  transition: transform 0.3s;
+}
+.close-btn:hover {
+  transform: rotate(90deg);
+}
+
