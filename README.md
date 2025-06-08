@@ -9,7 +9,7 @@ You can easily customize it for your own use!
 
 ## 🚀 Live Demo
 
-[View Portfolio on Vercel] <!-- Replace with your deployed URL -->
+[View Portfolio on Vercel](https://react-vite-tailwind-portfolio-templ.vercel.app/) <!-- Replace with your deployed URL -->
 
 ---
 
