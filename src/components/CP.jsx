@@ -45,7 +45,7 @@ export default function CP() {
           <div className="cp-handle text-[#444] mb-1">
             Handle: <a href="https://leetcode.com/u/shashank2401/" className="text-[#5a48fa] hover:underline" target="_blank" rel="noopener">shashank2401</a>
           </div>
-          <div className="cp-rating text-[#444] mb-1">Max Rating: <span>1973</span></div>
+          <div className="cp-rating text-[#444] mb-1">Max Rating: <span>2022</span></div>
           <div className="cp-rank text-[#444] mb-1">Badge: <span>Knight</span></div>
           <a href="https://leetcode.com/u/shashank2401/" className="cp-link mt-auto flex items-center gap-1 text-[#5a48fa] font-semibold hover:text-[#2d1e94] hover:underline transition" target="_blank" rel="noopener">
             <i className="fa-regular fa-file-lines"></i> View Profile
@@ -78,7 +78,7 @@ export default function CP() {
             Successfully solved over <a href="https://codolio.com/profile/shashank24" className="text-[#5a48fa] underline" target="_blank" rel="noopener">900+ problems</a> across various competitive programming platforms.
           </li>
           <li>
-            Actively participated in over <a href="https://codolio.com/profile/shashank24" className="text-[#5a48fa] underline" target="_blank" rel="noopener">90 contests</a> across platforms.
+            Actively participated in over <a href="https://codolio.com/profile/shashank24" className="text-[#5a48fa] underline" target="_blank" rel="noopener">100 contests</a> across platforms.
           </li>
           <li>
             Achieved <a href="https://codeforces.com/contest/2114/standings/participant/211255102#p211255102" className="text-[#5a48fa] underline" target="_blank" rel="noopener">Global Rank 847</a> in Codeforces Round 1027 (Div. 3).

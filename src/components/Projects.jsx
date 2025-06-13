@@ -51,6 +51,50 @@ export default function Projects() {
         </div>
         {/* Project 3 */}
         <div className="project-card flex flex-col min-h-[370px] bg-white rounded-[18px] border border-[#e5e2fe] shadow-lg p-7 transition hover:shadow-2xl hover:border-[#cfc2fd]">
+          <div className="project-title text-lg font-extrabold text-[#222] mb-4">GitHub Profile Visualizer</div>
+          <div className="project-desc text-[1.07em] text-[#333] mb-3 flex-grow flex items-start">
+            A dynamic app for exploring and comparing GitHub user profiles. Visualizes rich statistics, activity timelines, and repository insights, including a contribution heatmap. Supports side-by-side comparisons and offers both dark and light modes.
+          </div>
+          <div className="project-tags flex flex-wrap gap-2 mb-5">
+            <span className="tag tag-react px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3f6fd] text-[#2c98c9]">React</span>
+            <span className="tag tag-vite px-4 py-2 rounded-full font-medium text-[1em] bg-[#fff6c4] text-[#e6b800]">Vite</span>
+            <span className="tag tag-js px-4 py-2 rounded-full font-medium text-[1em] bg-[#f9e3fa] text-[#a64ca6]">JavaScript</span>
+            <span className="tag tag-api px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3ffe6] text-[#4db050]">Tailwind CSS</span>
+            <span className="tag tag-dataviz px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3eafd] text-[#4d5aa6]">GitHub API</span>
+          </div>
+          <a
+            href="https://github.com/shashank2401/github-profile-visualizer"
+            className="project-link mt-auto flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>&lt;/&gt;</span> Code
+          </a>
+        </div>
+        {/* Project 4 */}
+        <div className="project-card flex flex-col min-h-[370px] bg-white rounded-[18px] border border-[#e5e2fe] shadow-lg p-7 transition hover:shadow-2xl hover:border-[#cfc2fd]">
+          <div className="project-title text-lg font-extrabold text-[#222] mb-4">Weather App</div>
+          <div className="project-desc text-[1.07em] text-[#333] mb-3 flex-grow flex items-start">
+            A sleek, responsive weather application delivering real-time weather updates for any city. Features location-based forecasts, intuitive search suggestions, and seamless toggling between Celsius and Fahrenheit.
+          </div>
+          <div className="project-tags flex flex-wrap gap-2 mb-5">
+            <span className="tag tag-html px-4 py-2 rounded-full font-medium text-[1em] bg-[#fff3e3] text-[#e39107]">HTML</span>
+            <span className="tag tag-css px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3f7ff] text-[#1da4b8]">CSS</span>
+            <span className="tag tag-js px-4 py-2 rounded-full font-medium text-[1em] bg-[#f9e3fa] text-[#a64ca6]">JavaScript</span>
+            <span className="tag tag-api px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3ffe6] text-[#4db050]">Weather API</span>
+            <span className="tag tag-responsive px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3eafd] text-[#4d5aa6]">Responsive Design</span>
+          </div>
+          <a
+            href="https://github.com/shashank2401/weather-app"
+            className="project-link mt-auto flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>&lt;/&gt;</span> Code
+          </a>
+        </div>
+        {/* Project 5 */}
+        <div className="project-card flex flex-col min-h-[370px] bg-white rounded-[18px] border border-[#e5e2fe] shadow-lg p-7 transition hover:shadow-2xl hover:border-[#cfc2fd]">
           <div className="project-title text-lg font-extrabold text-[#222] mb-4">Soil-Water Characteristic Curve Prediction</div>
           <div className="project-desc text-[1.07em] text-[#333] mb-3 flex-grow flex items-start">
             Used Artificial Neural Networks (ANNs) to predict SWCC parameters from soil properties for plastic soils. Improved geotechnical prediction for slope stability and foundation design.
