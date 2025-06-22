@@ -51,6 +51,38 @@ export default function Projects() {
         </div>
         {/* Project 3 */}
         <div className="project-card flex flex-col min-h-[370px] bg-white rounded-[18px] border border-[#e5e2fe] shadow-lg p-7 transition hover:shadow-2xl hover:border-[#cfc2fd]">
+          <div className="project-title text-lg font-extrabold text-[#222] mb-4">Codeforces Visualizer</div>
+          <div className="project-desc text-[1.07em] text-[#333] mb-3 flex-grow flex items-start">
+            A minimal web app to view and compare Codeforces profiles. Shows key stats, rating history, and performance trends with clean visualizations. Built for fast, distraction-free, side-by-side comparisons.
+          </div>
+          <div className="project-tags flex flex-wrap gap-2 mb-5">
+            <span className="tag tag-react px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3f6fd] text-[#2c98c9]">React</span>
+            <span className="tag tag-vite px-4 py-2 rounded-full font-medium text-[1em] bg-[#fff6c4] text-[#e6b800]">Vite</span>
+            <span className="tag tag-js px-4 py-2 rounded-full font-medium text-[1em] bg-[#f9e3fa] text-[#a64ca6]">JavaScript</span>
+            <span className="tag tag-api px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3ffe6] text-[#4db050]">Tailwind CSS</span>
+            <span className="tag tag-dataviz px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3eafd] text-[#4d5aa6]">Codeforces API</span>
+          </div>
+          <div className="flex gap-4 mt-auto">
+            <a
+              href="https://cf-visualizer-rho.vercel.app"
+              className="project-link flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
+              target="_blank"
+              rel="noopener"
+            >
+              🔗 Demo
+            </a>
+            <a
+              href="https://github.com/shashank2401/cf-visualizer"
+              className="project-link flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>&lt;/&gt;</span> Code
+            </a>
+          </div>
+        </div>
+        {/* Project 4 */}
+        <div className="project-card flex flex-col min-h-[370px] bg-white rounded-[18px] border border-[#e5e2fe] shadow-lg p-7 transition hover:shadow-2xl hover:border-[#cfc2fd]">
           <div className="project-title text-lg font-extrabold text-[#222] mb-4">GitHub Profile Visualizer</div>
           <div className="project-desc text-[1.07em] text-[#333] mb-3 flex-grow flex items-start">
             A dynamic app for exploring and comparing GitHub user profiles. Visualizes rich statistics, activity timelines, and repository insights, including a contribution heatmap. Supports side-by-side comparisons and offers both dark and light modes.
@@ -62,16 +94,26 @@ export default function Projects() {
             <span className="tag tag-api px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3ffe6] text-[#4db050]">Tailwind CSS</span>
             <span className="tag tag-dataviz px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3eafd] text-[#4d5aa6]">GitHub API</span>
           </div>
-          <a
-            href="https://github.com/shashank2401/github-profile-visualizer"
-            className="project-link mt-auto flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>&lt;/&gt;</span> Code
-          </a>
+          <div className="flex gap-4 mt-auto">
+            <a
+              href="https://github-profile-visualizer-six.vercel.app/"
+              className="project-link flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
+              target="_blank"
+              rel="noopener"
+            >
+              🔗 Demo
+            </a>
+            <a
+              href="https://github.com/shashank2401/github-profile-visualizer"
+              className="project-link flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>&lt;/&gt;</span> Code
+            </a>
+          </div>
         </div>
-        {/* Project 4 */}
+        {/* Project 5 */}
         <div className="project-card flex flex-col min-h-[370px] bg-white rounded-[18px] border border-[#e5e2fe] shadow-lg p-7 transition hover:shadow-2xl hover:border-[#cfc2fd]">
           <div className="project-title text-lg font-extrabold text-[#222] mb-4">Weather App</div>
           <div className="project-desc text-[1.07em] text-[#333] mb-3 flex-grow flex items-start">
@@ -84,16 +126,26 @@ export default function Projects() {
             <span className="tag tag-api px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3ffe6] text-[#4db050]">Weather API</span>
             <span className="tag tag-responsive px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3eafd] text-[#4d5aa6]">Responsive Design</span>
           </div>
-          <a
-            href="https://github.com/shashank2401/weather-app"
-            className="project-link mt-auto flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>&lt;/&gt;</span> Code
-          </a>
+          <div className="flex gap-4 mt-auto">
+            <a
+              href="https://weather-app-zeta-three-62.vercel.app/"
+              className="project-link flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
+              target="_blank"
+              rel="noopener"
+            >
+              🔗 Demo
+            </a>
+            <a
+              href="https://github.com/shashank2401/weather-app"
+              className="project-link flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>&lt;/&gt;</span> Code
+            </a>
+          </div>
         </div>
-        {/* Project 5 */}
+        {/* Project 6 */}
         <div className="project-card flex flex-col min-h-[370px] bg-white rounded-[18px] border border-[#e5e2fe] shadow-lg p-7 transition hover:shadow-2xl hover:border-[#cfc2fd]">
           <div className="project-title text-lg font-extrabold text-[#222] mb-4">Soil-Water Characteristic Curve Prediction</div>
           <div className="project-desc text-[1.07em] text-[#333] mb-3 flex-grow flex items-start">

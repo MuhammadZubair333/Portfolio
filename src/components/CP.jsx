@@ -60,7 +60,7 @@ export default function CP() {
           <div className="cp-handle text-[#444] mb-1">
             Handle: <a href="https://atcoder.jp/users/shashank24" className="text-[#5a48fa] hover:underline" target="_blank" rel="noopener">shashank24</a>
           </div>
-          <div className="cp-rating text-[#444] mb-1">Max Rating: <span>809</span></div>
+          <div className="cp-rating text-[#444] mb-1">Max Rating: <span>927</span></div>
           <div className="cp-rank text-[#444] mb-1">Rank: <span>6 Kyu</span></div>
           <a href="https://atcoder.jp/users/shashank24" className="cp-link mt-auto flex items-center gap-1 text-[#5a48fa] font-semibold hover:text-[#2d1e94] hover:underline transition" target="_blank" rel="noopener">
             <i className="fa-regular fa-file-lines"></i> View Profile

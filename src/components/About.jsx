@@ -20,7 +20,7 @@ export default function About() {
             <a href="mailto:shashankraj0124@gmail.com" className="icon-box w-12 h-12 rounded-full bg-[#f6f8fc] shadow-md border border-[#e3e6fa] flex items-center justify-center text-xl text-[#5a48fa] hover:bg-[#eaeaff] hover:border-[#b6baff] hover:text-[#2d1e94] transition" target="_blank" rel="noopener" title="Email">
               <i className="fas fa-envelope"></i>
             </a>
-            <a href="https://drive.google.com/file/d/1fLTDJEnLXnduWtXNIzB2Uzs8FcG1_tgE/view?usp=sharing" className="resume-btn bg-[#e3e6ff] text-[#5a48fa] rounded-full font-bold px-6 h-12 flex items-center gap-2 border border-[#e3e6fa] shadow-sm hover:bg-[#d0d8ff] hover:text-[#2d1e94] hover:border-[#b6baff] transition" target="_blank" rel="noopener" title="Resume">
+            <a href="https://drive.google.com/file/d/1Qj5Fp4eN0NOVmOf7sCRBlt3RF6-1UqGC/view?usp=sharing" className="resume-btn bg-[#e3e6ff] text-[#5a48fa] rounded-full font-bold px-6 h-12 flex items-center gap-2 border border-[#e3e6fa] shadow-sm hover:bg-[#d0d8ff] hover:text-[#2d1e94] hover:border-[#b6baff] transition" target="_blank" rel="noopener" title="Resume">
               <i className="fas fa-file-alt"></i> Resume
             </a>
           </div>
