@@ -116,10 +116,12 @@ function ContactComponent() {
         className="flex flex-col items-center gap-8 w-full max-w-xl"
       >
         <motion.div variants={itemVariants} className="flex flex-col items-center text-center">
-            {/* --- THIS IS THE FIXED HEADING --- */}
-            <h2 className="text-3xl sm:text-5xl font-bold text-center flex flex-col sm:flex-row items-center sm:items-baseline justify-center gap-2 sm:gap-3 text-foreground">
-                <Mail className="w-8 h-8 sm:w-9 sm:h-9 text-primary drop-shadow-sm flex-shrink-0" />
+            <h2 className="text-3xl sm:text-5xl font-bold text-center text-foreground">
+              <span className="inline-flex items-center justify-center gap-3">
+                {/* THE FIX: Applying a responsive 'top' utility for perfect alignment */}
+                <Mail className="w-7 h-7 sm:w-9 sm:h-9 text-primary drop-shadow-sm flex-shrink-0 relative top-px sm:top-0.5" />
                 <span>Contact</span>
+              </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4">
                 Whether you want to discuss a project, ask a question, or just say hello, I’d love to hear from you. Fill out the form below or email me directly. Let’s connect!
