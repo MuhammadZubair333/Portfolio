@@ -1,173 +1,144 @@
-// src/components/Projects.jsx
+import { Code, ExternalLink, FolderKanban } from "lucide-react";
+import { motion } from "framer-motion";
+
 export default function Projects() {
+  const cardItemVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const projectsData = [
+    {
+      title: "Text File Compressor",
+      desc: "Built a robust, lossless text file compressor in C++ using the LZW algorithm, applying OOP and advanced algorithms. Achieved ~44% file size reduction on real-world files with efficient compression and decompression.",
+      tags: ["C++", "LZW Algorithm", "OOPS"],
+      links: [{ type: "code", href: "https://github.com/shashank2401/file-compressor-in-cpp" }],
+    },
+    {
+      title: "Pathfinding Visualizer",
+      desc: "Interactive C++/SFML visualizer for Dijkstra's and A* algorithms. Features dynamic obstacles, diagonal movement, OOP, and optimized data structures for smooth, real-time animations.",
+      tags: ["C++", "SFML", "Dijkstra's", "A*", "OOPS", "Data Structures"],
+      links: [{ type: "code", href: "https://github.com/shashank2401/pathfinding-visualizer-in-cpp" }],
+    },
+    {
+      title: "Codeforces Visualizer",
+      desc: "A minimal web app to view and compare Codeforces profiles. Shows key stats, rating history, and performance trends with clean visualizations. Built for fast, distraction-free, side-by-side comparisons.",
+      tags: ["React", "Vite", "JavaScript", "Tailwind CSS", "Codeforces API"],
+      links: [
+        { type: "demo", href: "https://cf-visualizer-rho.vercel.app" },
+        { type: "code", href: "https://github.com/shashank2401/cf-visualizer" },
+      ],
+    },
+    {
+      title: "GitHub Profile Visualizer",
+      desc: "A dynamic app for exploring and comparing GitHub user profiles. Visualizes rich statistics, activity timelines, and repository insights, including a contribution heatmap. Supports side-by-side comparisons and offers both dark and light modes.",
+      tags: ["React", "Vite", "JavaScript", "Tailwind CSS", "GitHub API"],
+      links: [
+        { type: "demo", href: "https://github-profile-visualizer-six.vercel.app/" },
+        { type: "code", href: "https://github.com/shashank2401/github-profile-visualizer" },
+      ],
+    },
+    {
+      title: "Weather App",
+      desc: "A sleek, responsive weather application delivering real-time weather updates for any city. Features location-based forecasts, intuitive search suggestions, and seamless toggling between Celsius and Fahrenheit.",
+      tags: ["HTML", "CSS", "JavaScript", "Weather API", "Responsive Design"],
+      links: [
+        { type: "demo", href: "https://weather-app-zeta-three-62.vercel.app/" },
+        { type: "code", href: "https://github.com/shashank2401/weather-app" },
+      ],
+    },
+    {
+      title: "Soil-Water Characteristic Curve Prediction",
+      desc: "Used Artificial Neural Networks (ANNs) to predict SWCC parameters from soil properties for plastic soils. Improved geotechnical prediction for slope stability and foundation design.",
+      tags: ["Python", "TensorFlow", "ANN", "Soil Mechanics", "Data Analysis"],
+      links: [
+        { type: "code", href: "https://github.com/shashank2401/swcc-prediction-using-ann" },
+      ],
+    },
+  ];
+
   return (
-    <section id="projects" className="section-card max-w-[1100px] mx-auto my-10 p-10 bg-white rounded-[22px] shadow-xl border border-[#e3e6fa]">
-      <div className="projects-title text-center text-[#5a48fa] text-[2.5em] font-extrabold mb-8 tracking-wide font-sans">
-        Projects
-      </div>
-      <div className="projects-grid grid grid-cols-3 gap-8 max-lg:grid-cols-1">
-        {/* Project 1 */}
-        <div className="project-card flex flex-col min-h-[370px] bg-white rounded-[18px] border border-[#e5e2fe] shadow-lg p-7 transition hover:shadow-2xl hover:border-[#cfc2fd]">
-          <div className="project-title text-lg font-extrabold text-[#222] mb-4">Text File Compressor</div>
-          <div className="project-desc text-[1.07em] text-[#333] mb-3 flex-grow flex items-start">
-            Built a robust, lossless text file compressor in C++ using the LZW algorithm, applying OOP and advanced algorithms. Achieved ~44% file size reduction on real-world files with efficient compression and decompression.
-          </div>
-          <div className="project-tags flex flex-wrap gap-2 mb-5">
-            <span className="tag tag-cpp px-4 py-2 rounded-full font-medium text-[1em] bg-[#dde6fb] text-[#4154a6]">C++</span>
-            <span className="tag tag-lzw px-4 py-2 rounded-full font-medium text-[1em] bg-[#d9f6fd] text-[#1da4b8]">LZW Algorithm</span>
-            <span className="tag tag-oops px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3e6fa] text-[#6a4dfc]">OOPS</span>
-          </div>
-          <a
-            href="https://github.com/shashank2401/file-compressor-in-cpp"
-            className="project-link mt-auto flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>&lt;/&gt;</span> Code
-          </a>
-        </div>
-        {/* Project 2 */}
-        <div className="project-card flex flex-col min-h-[370px] bg-white rounded-[18px] border border-[#e5e2fe] shadow-lg p-7 transition hover:shadow-2xl hover:border-[#cfc2fd]">
-          <div className="project-title text-lg font-extrabold text-[#222] mb-4">Pathfinding Visualizer</div>
-          <div className="project-desc text-[1.07em] text-[#333] mb-3 flex-grow flex items-start">
-            Interactive C++/SFML visualizer for Dijkstra's and A* algorithms. Features dynamic obstacles, diagonal movement, OOP, and optimized data structures for smooth, real-time animations.
-          </div>
-          <div className="project-tags flex flex-wrap gap-2 mb-5">
-            <span className="tag tag-cpp px-4 py-2 rounded-full font-medium text-[1em] bg-[#dde6fb] text-[#4154a6]">C++</span>
-            <span className="tag tag-sfml px-4 py-2 rounded-full font-medium text-[1em] bg-[#f5e3fa] text-[#a64ca6]">SFML</span>
-            <span className="tag tag-dijkstra px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3f6fd] text-[#2c98c9]">Dijkstra's</span>
-            <span className="tag tag-astar px-4 py-2 rounded-full font-medium text-[1em] bg-[#fff6c4] text-[#e6b800]">A*</span>
-            <span className="tag tag-oops px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3e6fa] text-[#6a4dfc]">OOPS</span>
-            <span className="tag tag-ds px-4 py-2 rounded-full font-medium text-[1em] bg-[#fae3ef] text-[#d24d8a]">Data Structures</span>
-          </div>
-          <a
-            href="https://github.com/shashank2401/pathfinding-visualizer-in-cpp"
-            className="project-link mt-auto flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>&lt;/&gt;</span> Code
-          </a>
-        </div>
-        {/* Project 3 */}
-        <div className="project-card flex flex-col min-h-[370px] bg-white rounded-[18px] border border-[#e5e2fe] shadow-lg p-7 transition hover:shadow-2xl hover:border-[#cfc2fd]">
-          <div className="project-title text-lg font-extrabold text-[#222] mb-4">Codeforces Visualizer</div>
-          <div className="project-desc text-[1.07em] text-[#333] mb-3 flex-grow flex items-start">
-            A minimal web app to view and compare Codeforces profiles. Shows key stats, rating history, and performance trends with clean visualizations. Built for fast, distraction-free, side-by-side comparisons.
-          </div>
-          <div className="project-tags flex flex-wrap gap-2 mb-5">
-            <span className="tag tag-react px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3f6fd] text-[#2c98c9]">React</span>
-            <span className="tag tag-vite px-4 py-2 rounded-full font-medium text-[1em] bg-[#fff6c4] text-[#e6b800]">Vite</span>
-            <span className="tag tag-js px-4 py-2 rounded-full font-medium text-[1em] bg-[#f9e3fa] text-[#a64ca6]">JavaScript</span>
-            <span className="tag tag-api px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3ffe6] text-[#4db050]">Tailwind CSS</span>
-            <span className="tag tag-dataviz px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3eafd] text-[#4d5aa6]">Codeforces API</span>
-          </div>
-          <div className="flex gap-4 mt-auto">
-            <a
-              href="https://cf-visualizer-rho.vercel.app"
-              className="project-link flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
-              target="_blank"
-              rel="noopener"
-            >
-              🔗 Demo
-            </a>
-            <a
-              href="https://github.com/shashank2401/cf-visualizer"
-              className="project-link flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
-              target="_blank"
-              rel="noopener"
-            >
-              <span>&lt;/&gt;</span> Code
-            </a>
-          </div>
-        </div>
-        {/* Project 4 */}
-        <div className="project-card flex flex-col min-h-[370px] bg-white rounded-[18px] border border-[#e5e2fe] shadow-lg p-7 transition hover:shadow-2xl hover:border-[#cfc2fd]">
-          <div className="project-title text-lg font-extrabold text-[#222] mb-4">GitHub Profile Visualizer</div>
-          <div className="project-desc text-[1.07em] text-[#333] mb-3 flex-grow flex items-start">
-            A dynamic app for exploring and comparing GitHub user profiles. Visualizes rich statistics, activity timelines, and repository insights, including a contribution heatmap. Supports side-by-side comparisons and offers both dark and light modes.
-          </div>
-          <div className="project-tags flex flex-wrap gap-2 mb-5">
-            <span className="tag tag-react px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3f6fd] text-[#2c98c9]">React</span>
-            <span className="tag tag-vite px-4 py-2 rounded-full font-medium text-[1em] bg-[#fff6c4] text-[#e6b800]">Vite</span>
-            <span className="tag tag-js px-4 py-2 rounded-full font-medium text-[1em] bg-[#f9e3fa] text-[#a64ca6]">JavaScript</span>
-            <span className="tag tag-api px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3ffe6] text-[#4db050]">Tailwind CSS</span>
-            <span className="tag tag-dataviz px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3eafd] text-[#4d5aa6]">GitHub API</span>
-          </div>
-          <div className="flex gap-4 mt-auto">
-            <a
-              href="https://github-profile-visualizer-six.vercel.app/"
-              className="project-link flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
-              target="_blank"
-              rel="noopener"
-            >
-              🔗 Demo
-            </a>
-            <a
-              href="https://github.com/shashank2401/github-profile-visualizer"
-              className="project-link flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
-              target="_blank"
-              rel="noopener"
-            >
-              <span>&lt;/&gt;</span> Code
-            </a>
-          </div>
-        </div>
-        {/* Project 5 */}
-        <div className="project-card flex flex-col min-h-[370px] bg-white rounded-[18px] border border-[#e5e2fe] shadow-lg p-7 transition hover:shadow-2xl hover:border-[#cfc2fd]">
-          <div className="project-title text-lg font-extrabold text-[#222] mb-4">Weather App</div>
-          <div className="project-desc text-[1.07em] text-[#333] mb-3 flex-grow flex items-start">
-            A sleek, responsive weather application delivering real-time weather updates for any city. Features location-based forecasts, intuitive search suggestions, and seamless toggling between Celsius and Fahrenheit.
-          </div>
-          <div className="project-tags flex flex-wrap gap-2 mb-5">
-            <span className="tag tag-html px-4 py-2 rounded-full font-medium text-[1em] bg-[#fff3e3] text-[#e39107]">HTML</span>
-            <span className="tag tag-css px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3f7ff] text-[#1da4b8]">CSS</span>
-            <span className="tag tag-js px-4 py-2 rounded-full font-medium text-[1em] bg-[#f9e3fa] text-[#a64ca6]">JavaScript</span>
-            <span className="tag tag-api px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3ffe6] text-[#4db050]">Weather API</span>
-            <span className="tag tag-responsive px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3eafd] text-[#4d5aa6]">Responsive Design</span>
-          </div>
-          <div className="flex gap-4 mt-auto">
-            <a
-              href="https://weather-app-zeta-three-62.vercel.app/"
-              className="project-link flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
-              target="_blank"
-              rel="noopener"
-            >
-              🔗 Demo
-            </a>
-            <a
-              href="https://github.com/shashank2401/weather-app"
-              className="project-link flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
-              target="_blank"
-              rel="noopener"
-            >
-              <span>&lt;/&gt;</span> Code
-            </a>
-          </div>
-        </div>
-        {/* Project 6 */}
-        <div className="project-card flex flex-col min-h-[370px] bg-white rounded-[18px] border border-[#e5e2fe] shadow-lg p-7 transition hover:shadow-2xl hover:border-[#cfc2fd]">
-          <div className="project-title text-lg font-extrabold text-[#222] mb-4">Soil-Water Characteristic Curve Prediction</div>
-          <div className="project-desc text-[1.07em] text-[#333] mb-3 flex-grow flex items-start">
-            Used Artificial Neural Networks (ANNs) to predict SWCC parameters from soil properties for plastic soils. Improved geotechnical prediction for slope stability and foundation design.
-          </div>
-          <div className="project-tags flex flex-wrap gap-2 mb-5">
-            <span className="tag tag-python px-4 py-2 rounded-full font-medium text-[1em] bg-[#e7ffd9] text-[#4db050]">Python</span>
-            <span className="tag tag-tf px-4 py-2 rounded-full font-medium text-[1em] bg-[#ffe3e3] text-[#e05d5d]">TensorFlow</span>
-            <span className="tag tag-ann px-4 py-2 rounded-full font-medium text-[1em] bg-[#e6ffe3] text-[#4db050]">ANN</span>
-            <span className="tag tag-sm px-4 py-2 rounded-full font-medium text-[1em] bg-[#e3eafd] text-[#4d5aa6]">Soil Mechanics</span>
-            <span className="tag tag-da px-4 py-2 rounded-full font-medium text-[1em] bg-[#f9f6e3] text-[#e39107]">Data Analysis</span>
-          </div>
-          <a
-            href="https://github.com/shashank2401/swcc-prediction-using-ann"
-            className="project-link mt-auto flex items-center gap-1 text-[#5a48fa] font-semibold text-[1.09em] hover:text-[#2d1e94] hover:underline transition"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>&lt;/&gt;</span> Code
-          </a>
-        </div>
-      </div>
+    <section id="projects" className="max-w-6xl mx-auto my-32 px-4 sm:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
+        className="rounded-3xl bg-neutral-50/80 dark:bg-neutral-900/85 backdrop-blur-md border border-neutral-200 dark:border-neutral-800 shadow-2xl p-10 md:p-16 relative overflow-hidden"
+      >
+        {/* Glow effect */}
+        <div className="absolute -inset-2 bg-gradient-to-br from-neutral-400/10 via-neutral-500/10 to-neutral-700/10 blur-2xl opacity-25 pointer-events-none z-0 rounded-3xl" />
+
+        {/* Heading */}
+        <motion.h2
+          className="text-4xl sm:text-5xl font-bold text-center mb-16 leading-tight flex justify-center items-center gap-4 text-foreground relative z-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <FolderKanban className="w-8 h-8 sm:w-11 sm:h-11 text-primary drop-shadow-sm translate-y-[1px]" />
+          <span>Projects</span>
+        </motion.h2>
+
+        {/* Cards */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch relative z-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.2 } },
+          }}
+        >
+          {projectsData.map((project, index) => (
+            <motion.div key={index} variants={cardItemVariants} className="h-full">
+              <div className="bg-white/80 dark:bg-neutral-900/70 backdrop-blur-md border border-neutral-200 dark:border-neutral-700 rounded-2xl shadow-xl flex flex-col h-full p-6 transition-all duration-300 ease-in-out hover:shadow-2xl hover:border-primary/40 hover:-translate-y-1">
+                <h3 className="text-xl font-bold text-foreground mb-3 leading-tight">
+                  {project.title}
+                </h3>
+                <p className="text-base text-muted-foreground mb-4 flex-grow">
+                  {project.desc}
+                </p>
+                <div className="flex flex-wrap gap-3 mb-5 mt-auto">
+                  {project.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className="px-4 py-2 rounded-full text-sm font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-600 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-all"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex gap-4 flex-wrap">
+                  {project.links.map((link, linkIndex) => (
+                    <a
+                      key={linkIndex}
+                      href={link.href}
+                      className="flex items-center gap-2 text-primary font-semibold text-sm hover:underline hover:text-foreground dark:hover:text-primary-foreground/60 transition-colors duration-200"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.type === "code" ? (
+                        <Code className="w-4 h-4" />
+                      ) : (
+                        <ExternalLink className="w-4 h-4" />
+                      )}
+                      {link.type === "code" ? "Code" : "Demo"}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

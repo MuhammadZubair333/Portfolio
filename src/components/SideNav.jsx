@@ -1,47 +1,88 @@
 // src/components/SideNav.jsx
 import { useEffect } from "react";
+import { motion } from "framer-motion";
+import {
+  User,
+  BrainCircuit,
+  GraduationCap,
+  FolderKanban,
+  Swords,
+  Mail,
+  X,
+} from "lucide-react";
 
 const navLinks = [
-  { href: "#about", icon: "fa-regular fa-user", text: "About" },
-  { href: "#skills", icon: "fa-solid fa-brain", text: "Skills" },
-  { href: "#academics", icon: "fa-solid fa-graduation-cap", text: "Education" },
-  { href: "#projects", icon: "fa-solid fa-briefcase", text: "Projects" },
-  { href: "#cp", icon: "fa-solid fa-trophy", text: "CP" },
-  { href: "#contact", icon: "fa-solid fa-envelope", text: "Contact" },
+  { href: "#about", icon: User, text: "About" },
+  { href: "#skills", icon: BrainCircuit, text: "Skills" },
+  { href: "#academics", icon: GraduationCap, text: "Education" },
+  { href: "#projects", icon: FolderKanban, text: "Projects" },
+  { href: "#cp", icon: Swords, text: "CP" },
+  { href: "#contact", icon: Mail, text: "Contact" },
 ];
 
 export default function SideNav({ open, onClose }) {
+  const navVariants = {
+    closed: {
+      x: "100%",
+      opacity: 0.5,
+      transition: {
+        type: "spring",
+        stiffness: 250,
+        damping: 30,
+        mass: 0.8,
+        when: "afterChildren",
+      },
+    },
+    open: {
+      x: "0%",
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 250,
+        damping: 30,
+        mass: 0.8,
+        staggerChildren: 0.07,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    closed: { y: 20, opacity: 0 },
+    open: { y: 0, opacity: 1 },
+  };
+
   useEffect(() => {
     if (!open) return;
+
     const handleKeyDown = (e) => {
       if (e.key === "Escape") onClose();
     };
-    const handleClick = (e) => {
-      if (
-        !e.target.closest(".side-nav") &&
-        !e.target.closest(".hamburger")
-      ) {
+
+    const handleClickOutside = (e) => {
+      if (!e.target.closest(".side-nav-panel") && !e.target.closest(".hamburger")) {
         onClose();
       }
     };
+
     document.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("mousedown", handleClick);
-    document.body.style.overflow = open ? "hidden" : "";
+    document.addEventListener("mousedown", handleClickOutside);
+    document.body.style.overflow = "hidden";
+
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("mousedown", handleClickOutside);
       document.body.style.overflow = "";
     };
   }, [open, onClose]);
 
-  // Scroll with offset for sticky header
   const handleNavClick = (e, href) => {
     e.preventDefault();
     const targetId = href.slice(1);
     const section = document.getElementById(targetId);
     if (section) {
-      // Offset for sticky header (80px)
-      const yOffset = -80;
+      const headerHeight = document.querySelector("header")?.offsetHeight || 80;
+      const yOffset = -headerHeight - 10;
       const y = section.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
@@ -49,37 +90,52 @@ export default function SideNav({ open, onClose }) {
   };
 
   return (
-    <nav
-      className={`side-nav fixed top-0 right-0 w-[270px] h-screen bg-white shadow-lg z-30 flex flex-col p-9 pt-8 transition-all duration-300 ${
-        open ? "open" : ""
-      }`}
-      aria-label="Main Navigation"
-      style={{ right: open ? 0 : "-300px", display: open ? "flex" : "none" }}
-    >
-      {open && (
-        <button
-          className="close-btn self-end text-2xl text-[#444] bg-none border-none mb-7 transition-transform duration-300 hover:rotate-90 cursor-pointer"
+    <>
+      <motion.div
+        initial={false}
+        animate={open ? "visible" : "hidden"}
+        variants={{
+          hidden: { opacity: 0, pointerEvents: "none" },
+          visible: { opacity: 0.4, pointerEvents: "auto" },
+        }}
+        transition={{ duration: 0.3 }}
+        className="fixed inset-0 bg-black z-40 lg:hidden"
+        onClick={onClose}
+      />
+
+      <motion.nav
+        initial={false}
+        animate={open ? "open" : "closed"}
+        variants={navVariants}
+        className="side-nav-panel fixed top-0 right-0 w-[270px] h-screen bg-card shadow-lg z-50 flex flex-col p-6 pt-8 transform-gpu"
+        aria-label="Main Navigation"
+      >
+        <motion.button
+          variants={itemVariants}
+          className="self-end text-muted-foreground hover:text-primary transition-colors duration-300 hover:rotate-90 cursor-pointer p-2 -mr-2 mb-8"
           aria-label="Close Menu"
           type="button"
           onClick={onClose}
         >
-          <i className="fas fa-times"></i>
-        </button>
-      )}
-      <ul className="flex-1">
-        {navLinks.map((link) => (
-          <li key={link.href} className="mb-7">
-            <a
-              href={link.href}
-              className="flex items-center gap-4 text-[#222] text-[1.15em] hover:text-[#5a48fa] transition"
-              onClick={(e) => handleNavClick(e, link.href)}
-            >
-              <i className={`${link.icon} text-[#5a48fa] text-[1.25em] w-6 text-center`}></i>
-              {link.text}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+          <X className="w-7 h-7" />
+        </motion.button>
+
+        <ul className="flex-1 flex flex-col gap-6">
+          {navLinks.map((link) => (
+            <motion.li key={link.href} variants={itemVariants}>
+              <a
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="flex flex-row items-center justify-start gap-4 text-foreground text-lg font-medium transition-colors duration-200 py-2 w-full"
+                style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}
+              >
+                <link.icon className="w-5 h-5 flex-shrink-0 inline-block" />
+                <span className="leading-none inline-block">{link.text}</span>
+              </a>
+            </motion.li>
+          ))}
+        </ul>
+      </motion.nav>
+    </>
   );
 }
