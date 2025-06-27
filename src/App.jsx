@@ -59,24 +59,28 @@ export const StaticBackground = memo(({ theme }) => {
 StaticBackground.displayName = "StaticBackground";
 
 
-// --- ANIMATION LOGIC (Unchanged) ---
+// --- ANIMATION LOGIC ---
 const pageVariants = { initial: { opacity: 0, y: 20 }, in: { opacity: 1, y: 0 }, out: { opacity: 0, y: -20 } };
 const pageTransition = { type: "tween", ease: "anticipate", duration: 0.5 };
 
+// Memoize the routes to prevent re-calculation
 const AnimatedRoutes = memo(() => {
     const location = useLocation();
+    const routesConfig = [
+        // THE FIX: Render the About component on the root path '/'
+        { path: "/", Component: About },
+        { path: "/about", Component: About },
+        { path: "/skills", Component: Skills },
+        { path: "/academics", Component: Academics },
+        { path: "/projects", Component: Projects },
+        { path: "/cp", Component: CP },
+        { path: "/contact", Component: Contact },
+    ];
+    
     return (
         <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
-                <Route path="/" element={<Navigate to="/about" />} />
-                {[
-                  { path: "/about", Component: About },
-                  { path: "/skills", Component: Skills },
-                  { path: "/academics", Component: Academics },
-                  { path: "/projects", Component: Projects },
-                  { path: "/cp", Component: CP },
-                  { path: "/contact", Component: Contact },
-                ].map(({ path, Component }) => (
+                {routesConfig.map(({ path, Component }) => (
                   <Route key={path} path={path} element={
                     <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
                       <Component />
