@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Menu } from "lucide-react";
 import { memo, useCallback, useMemo } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-// Move static animation config outside component
 const headerVariants = {
   hidden: { y: -100, opacity: 0 },
   visible: {
@@ -16,47 +16,27 @@ const headerVariants = {
   },
 };
 
-// Memoized hamburger line component
-const HamburgerLine = memo(({ index, isMenuOpen }) => {
-  const getLineClasses = useMemo(() => {
-    const baseClasses = "block h-[2px] w-6 bg-primary rounded-sm my-[3px] transition-all duration-300 ease-in-out";
-    
-    if (!isMenuOpen) return baseClasses;
-    
-    if (index === 0) return `${baseClasses} transform translate-y-[6px] rotate-45`;
-    if (index === 1) return `${baseClasses} opacity-0`;
-    if (index === 2) return `${baseClasses} transform -translate-y-[6px] -rotate-45`;
-    
-    return baseClasses;
-  }, [index, isMenuOpen]);
+const navLinks = [
+  { to: "/about", label: "About" },
+  { to: "/skills", label: "Skills" },
+  { to: "/academics", label: "Education" },
+  { to: "/projects", label: "Projects" },
+  { to: "/cp", label: "CP" },
+  { to: "/contact", label: "Contact" },
+];
 
-  return (
-    <span
-      className={getLineClasses}
-      style={{
-        willChange: "transform, opacity",
-        transform: "translate3d(0, 0, 0)",
-        backfaceVisibility: "hidden",
-      }}
-    />
-  );
-});
+const Header = memo(({ toggleTheme, currentTheme, onHamburgerClick }) => {
+  const location = useLocation();
 
-HamburgerLine.displayName = "HamburgerLine";
-
-const Header = memo(({ onHamburgerClick, isMenuOpen, toggleTheme, currentTheme }) => {
-  // Memoize theme toggle handler to prevent recreation
   const handleThemeToggle = useCallback((e) => {
     toggleTheme();
     e.currentTarget.blur();
   }, [toggleTheme]);
 
-  // Memoize theme icon to prevent recreation
   const ThemeIcon = useMemo(() => {
     return currentTheme === "light" ? Moon : Sun;
   }, [currentTheme]);
 
-  // Memoize aria label
   const themeAriaLabel = useMemo(() => {
     return `Switch to ${currentTheme === "light" ? "dark" : "light"} mode`;
   }, [currentTheme]);
@@ -67,19 +47,39 @@ const Header = memo(({ onHamburgerClick, isMenuOpen, toggleTheme, currentTheme }
       initial="hidden"
       animate="visible"
       className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 sm:px-8 py-4 bg-muted/70 dark:bg-muted/50 backdrop-blur-md shadow-md border-b border-border/40"
-      style={{ 
-        willChange: "transform",
-        transform: "translate3d(0, 0, 0)"
-      }}
+      style={{ willChange: "transform", transform: "translate3d(0, 0, 0)" }}
     >
       {/* Logo / Name */}
-      <div className="text-2xl sm:text-3xl font-extrabold text-primary tracking-wide select-none">
+      <Link to="/about" className="text-2xl sm:text-3xl font-extrabold text-primary tracking-wide select-none hover:opacity-80 transition">
         Shashank Raj
-      </div>
+      </Link>
 
-      {/* Right controls */}
-      <div className="flex items-center gap-4">
-        {/* Theme toggle button */}
+      {/* Desktop Navigation: visible at screen widths > 935px */}
+      <nav className="hidden min-[935px]:flex gap-2 sm:gap-4 md:gap-6 items-center">
+        {navLinks.map(link => (
+          <Link
+            key={link.to}
+            to={link.to}
+            className={`px-3 py-1.5 rounded-md text-base font-medium transition-colors duration-150
+              ${location.pathname === link.to
+                ? "text-primary bg-primary/10 dark:bg-primary/20"
+                : "text-muted-foreground hover:text-primary hover:bg-primary/5"}`}
+          >
+            {link.label}
+          </Link>
+        ))}
+        <button
+          onClick={handleThemeToggle}
+          type="button"
+          className="ml-2 p-2 rounded-full text-muted-foreground hover:text-primary transition-transform duration-200 hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 will-change-transform"
+          aria-label={themeAriaLabel}
+        >
+          <ThemeIcon className="w-6 h-6" />
+        </button>
+      </nav>
+
+      {/* Mobile: Hamburger + Theme Toggle, visible up to 934px */}
+      <div className="flex max-[934px]:flex hidden items-center gap-2">
         <button
           onClick={handleThemeToggle}
           type="button"
@@ -88,23 +88,13 @@ const Header = memo(({ onHamburgerClick, isMenuOpen, toggleTheme, currentTheme }
         >
           <ThemeIcon className="w-6 h-6" />
         </button>
-
-        {/* Hamburger Menu */}
         <button
           type="button"
           onClick={onHamburgerClick}
-          aria-label="Toggle Menu"
-          aria-pressed={isMenuOpen}
-          className={`hamburger relative flex flex-col justify-center items-center w-10 h-10 z-50 cursor-pointer transition-transform duration-300 will-change-transform ${
-            isMenuOpen ? "rotate-90" : ""
-          }`}
-          style={{ 
-            transform: "translate3d(0, 0, 0)"
-          }}
+          aria-label="Open menu"
+          className="ml-1 flex items-center justify-center w-14 h-14 rounded-full hover:bg-primary/10 active:scale-95 transition"
         >
-          {[0, 1, 2].map((i) => (
-            <HamburgerLine key={i} index={i} isMenuOpen={isMenuOpen} />
-          ))}
+          <Menu className="w-9 h-9 text-primary" />
         </button>
       </div>
     </motion.header>

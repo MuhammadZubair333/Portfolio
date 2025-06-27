@@ -9,18 +9,19 @@ import {
   Mail,
   X,
 } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 // Move static data outside component
 const navLinks = [
-  { href: "#about", icon: User, text: "About" },
-  { href: "#skills", icon: BrainCircuit, text: "Skills" },
-  { href: "#academics", icon: GraduationCap, text: "Education" },
-  { href: "#projects", icon: FolderKanban, text: "Projects" },
-  { href: "#cp", icon: Swords, text: "CP" },
-  { href: "#contact", icon: Mail, text: "Contact" },
+  { to: "/about", icon: User, text: "About" },
+  { to: "/skills", icon: BrainCircuit, text: "Skills" },
+  { to: "/academics", icon: GraduationCap, text: "Education" },
+  { to: "/projects", icon: FolderKanban, text: "Projects" },
+  { to: "/cp", icon: Swords, text: "CP" },
+  { to: "/contact", icon: Mail, text: "Contact" },
 ];
 
-// Move animation variants outside component
+// Animation variants
 const navVariants = {
   closed: {
     x: "100%",
@@ -58,44 +59,28 @@ const overlayVariants = {
 };
 
 // Memoized nav item component
-const NavItem = memo(({ link, onNavClick }) => {
+const NavItem = memo(({ link, onNavClick, isActive }) => {
   const Icon = link.icon;
-  
-  const handleClick = useCallback((e) => {
-    onNavClick(e, link.href);
-  }, [onNavClick, link.href]);
-
   return (
     <motion.li variants={itemVariants} className="w-full">
-      <a
-        href={link.href}
-        onClick={handleClick}
-        className="flex flex-row items-center justify-start gap-4 text-foreground text-lg font-medium transition-colors duration-200 py-2 w-full hover:text-primary"
+      <Link
+        to={link.to}
+        onClick={onNavClick}
+        className={`flex flex-row items-center justify-start gap-4 text-lg font-medium transition-colors duration-200 py-2 w-full
+          ${isActive ? "text-primary" : "text-foreground hover:text-primary"}
+        `}
         style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}
       >
         <Icon className="w-5 h-5 flex-shrink-0" style={{ display: 'inline-block' }} />
         <span className="leading-none" style={{ display: 'inline-block' }}>{link.text}</span>
-      </a>
+      </Link>
     </motion.li>
   );
 });
-
 NavItem.displayName = "NavItem";
 
 const SideNav = memo(({ open, onClose }) => {
-  // Memoize scroll handler to prevent recreation
-  const handleNavClick = useCallback((e, href) => {
-    e.preventDefault();
-    const targetId = href.slice(1);
-    const section = document.getElementById(targetId);
-    if (section) {
-      const headerHeight = document.querySelector("header")?.offsetHeight || 80;
-      const yOffset = -headerHeight - 10;
-      const y = section.getBoundingClientRect().top + window.scrollY + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
-    onClose();
-  }, [onClose]);
+  const location = useLocation();
 
   // Memoize event handlers
   const handleKeyDown = useCallback((e) => {
@@ -123,10 +108,15 @@ const SideNav = memo(({ open, onClose }) => {
   }, [open, handleKeyDown, handleClickOutside]);
 
   // Memoize nav items to prevent recreation
-  const navItems = useMemo(() => 
+  const navItems = useMemo(() =>
     navLinks.map((link) => (
-      <NavItem key={link.href} link={link} onNavClick={handleNavClick} />
-    )), [handleNavClick]
+      <NavItem
+        key={link.to}
+        link={link}
+        onNavClick={onClose}
+        isActive={location.pathname === link.to}
+      />
+    )), [onClose, location.pathname]
   );
 
   return (
@@ -139,7 +129,7 @@ const SideNav = memo(({ open, onClose }) => {
         transition={{ duration: 0.3 }}
         className="fixed inset-0 bg-black z-40 lg:hidden"
         onClick={onClose}
-        style={{ 
+        style={{
           willChange: "opacity",
           transform: "translate3d(0, 0, 0)"
         }}
@@ -152,7 +142,7 @@ const SideNav = memo(({ open, onClose }) => {
         variants={navVariants}
         className="side-nav-panel fixed top-0 right-0 w-[270px] h-screen bg-card shadow-lg z-50 flex flex-col p-6 pt-8"
         aria-label="Main Navigation"
-        style={{ 
+        style={{
           willChange: "transform, opacity",
           transform: "translate3d(0, 0, 0)"
         }}
