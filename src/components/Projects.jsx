@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { memo, useMemo } from "react";
 
 // Memoized ProjectCard component to prevent unnecessary re-renders
-const ProjectCard = memo(({ project, index }) => {
+const ProjectCard = memo(({ project }) => {
   const cardItemVariants = useMemo(() => ({
     hidden: { opacity: 0, y: 50, scale: 0.95 },
     visible: {
@@ -59,7 +59,7 @@ const ProjectCard = memo(({ project, index }) => {
 ProjectCard.displayName = 'ProjectCard';
 
 export default function Projects() {
-  // Move static data outside component or use useMemo to prevent recreation
+  // Memoize project data to prevent recreation
   const projectsData = useMemo(() => [
     {
       title: "Text File Compressor",
@@ -143,7 +143,7 @@ export default function Projects() {
         {...sectionVariants}
         className="rounded-3xl bg-neutral-50/80 dark:bg-neutral-900/85 backdrop-blur-md border border-neutral-200 dark:border-neutral-800 shadow-2xl p-10 md:p-16 relative overflow-hidden"
       >
-        {/* Glow effect - moved to pseudo-element for better performance */}
+        {/* Glow effect */}
         <div className="absolute -inset-2 bg-gradient-to-br from-neutral-400/10 via-neutral-500/10 to-neutral-700/10 blur-2xl opacity-25 pointer-events-none z-0 rounded-3xl" />
 
         {/* Heading */}
@@ -161,7 +161,7 @@ export default function Projects() {
           {...gridVariants}
         >
           {projectsData.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
+            <ProjectCard key={index} project={project} />
           ))}
         </motion.div>
       </motion.div>

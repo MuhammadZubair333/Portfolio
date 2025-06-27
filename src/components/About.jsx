@@ -62,7 +62,6 @@ export default memo(function About() {
   const isInView = useInView(sectionRef, { 
     once: true, 
     margin: "-10% 0px",
-    // Reduce frequency of intersection checks
     threshold: 0.1
   });
 

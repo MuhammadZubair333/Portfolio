@@ -21,6 +21,8 @@ const EducationCard = memo(({ education, variants }) => {
               className="w-full h-full object-contain rounded-lg"
               loading="lazy"
               decoding="async"
+              width={64}
+              height={64}
               style={{ aspectRatio: '1/1' }}
             />
           </div>
@@ -56,7 +58,7 @@ const EducationCard = memo(({ education, variants }) => {
 
 EducationCard.displayName = 'EducationCard';
 
-// Move static data outside component to prevent recreation
+// Static data outside component
 const ACADEMICS_DATA = [
   {
     logo: "/assets/logos/iit_bhu.png",
@@ -85,11 +87,10 @@ export default memo(function Academics() {
   const isInView = useInView(ref, { 
     once: true, 
     amount: 0.2,
-    // Reduce frequency of intersection checks
     threshold: 0.2
   });
 
-  // Memoize animation variants to prevent object recreation
+  // Memoized animation variants
   const animationVariants = useMemo(() => ({
     cardVariants: {
       hidden: { opacity: 0, y: 40 },
@@ -120,7 +121,7 @@ export default memo(function Academics() {
     }
   }), []);
 
-  // Memoize education cards to prevent recreation
+  // Memoized education cards
   const educationCards = useMemo(() => 
     ACADEMICS_DATA.map((education, index) => (
       <EducationCard
@@ -141,7 +142,7 @@ export default memo(function Academics() {
         className="rounded-3xl bg-neutral-50/80 dark:bg-neutral-900/85 backdrop-blur-md border border-neutral-200 dark:border-neutral-800 shadow-2xl p-10 md:p-16 relative overflow-hidden"
         style={{ 
           willChange: isInView ? 'auto' : 'transform, opacity',
-          transform: 'translateZ(0)' // Force layer creation
+          transform: 'translateZ(0)'
         }}
       >
         {/* Optimized background gradient */}
