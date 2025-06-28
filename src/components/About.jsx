@@ -52,7 +52,7 @@ const TAGS = [
 ];
 
 const RESUME_URL =
-  "https://drive.google.com/file/d/135ph1omrsyypG7_FAffFYp27_c9UQQPR/view?usp=sharing";
+  "https://drive.google.com/file/d/1FIq3CNO73-M9GXjIhZAYo49gQGxgmudO/view?usp=sharing";
 
 export default memo(function About() {
   const socialLinksElements = useMemo(
@@ -92,7 +92,7 @@ export default memo(function About() {
           aria-label="Profile photo of Shashank Raj"
         >
           <img
-            src="/assets/MyPhoto.jpg"
+            src="/assets/MyPhotograph.png"
             alt="Shashank Raj"
             loading="lazy"
             decoding="async"
