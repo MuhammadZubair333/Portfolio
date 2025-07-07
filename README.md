@@ -8,7 +8,7 @@ It features a multi-page architecture with dedicated sections for an introductio
 
 ## 🚀 Live Demo
 
-[**View Portfolio on Vercel**](https://shashank-raj-portfolio.vercel.app)
+[**View Portfolio on Vercel**](https://portfolio-self-ten-47.vercel.app/projects))
 
 ---
 
