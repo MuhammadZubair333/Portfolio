@@ -136,7 +136,7 @@ function ContactComponent() {
             rel="noopener noreferrer"
           >
             <Mail className="w-5 h-5" />
-            shashankraj0124@gmail.com
+            arshadzubair91@gmail.com
           </a>
         </motion.div>
 

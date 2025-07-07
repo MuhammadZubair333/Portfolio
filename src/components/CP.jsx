@@ -50,9 +50,9 @@ const PlatformCard = React.memo(({ platform }) => (
     </div>
     <div className="text-lg font-semibold text-foreground">{platform.name}</div>
     <div className="text-sm text-muted-foreground mt-1 mb-1">
-      <span className="text-foreground/80">Handle:</span>{" "}
+      <span className="text-foreground/80">Provider:</span>{" "}
       <a href={platform.profileUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline dark:hover:text-primary-foreground/70 transition">
-        {platform.handle}
+        {platform.Provider}
       </a>
     </div>
     <div className="flex flex-col gap-[2px] text-sm text-muted-foreground mb-3">
@@ -65,7 +65,7 @@ const PlatformCard = React.memo(({ platform }) => (
     </div>
     <a href={platform.profileUrl} target="_blank" rel="noopener noreferrer" className="mt-auto pt-3 flex items-center gap-1 text-primary font-medium text-sm hover:underline dark:hover:text-primary-foreground/70 transition">
       <ExternalLink className="w-4 h-4" />
-      View Profile
+      View Certficate
     </a>
   </motion.div>
 ));
@@ -86,19 +86,19 @@ HighlightItem.displayName = "HighlightItem";
 // --- Main Component ---
 function CompetitiveProgrammingComponent() {
   const cpPlatforms = useMemo(() => [
-    { name: "Codeforces", logo: "/assets/logos/codeforces.png", handle: "shashank2401", profileUrl: "https://codeforces.com/profile/shashank2401", stats: [{ label: "Max Rating", value: "1600" }, { label: "Rank", value: "Expert" }] },
-    { name: "CodeChef", logo: "/assets/logos/codechef.svg", handle: "shashankraj24", profileUrl: "https://www.codechef.com/users/shashankraj24", stats: [{ label: "Max Rating", value: "1954" }, { label: "Rank", value: "4-Star" }] },
-    { name: "LeetCode", logo: "/assets/logos/leetcode.png", handle: "shashank2401", profileUrl: "https://leetcode.com/u/shashank2401/", stats: [{ label: "Max Rating", value: "2022" }, { label: "Badge", value: "Knight" }] },
-    { name: "AtCoder", logo: "/assets/logos/atcoder.png", handle: "shashank24", profileUrl: "https://atcoder.jp/users/shashank24", stats: [{ label: "Max Rating", value: "927" }, { label: "Rank", value: "6 Kyu" }] },
+    { name: "Google Data Analytics Professional Certificate", logo: "/assets/logos/gcc1.png", Provider: "Coursera", profileUrl: "https://coursera.org/share/19ea8531986abac81107bbed19894608", stats: [{ label: "Issued", value: "May 2025" }, { label: "Type", value: "Professional" }] },
+    { name: "Google Prompting Essentials", logo: "/assets/logos/gcc2.png", Provider: "Coursera", profileUrl: "https://coursera.org/share/fa1d4d4f035e12f575d460bc13013a67", stats: [{ label: "Issued", value: "June 2025" }, { label: "Type", value: "Specialization" }] },
+    { name: "Wordpress Internship Certificate", logo: "/assets/logos/gcc3.png", Provider: "Internncraft", profileUrl: "https://drive.google.com/file/d/1bw_fAQ8huFrbDGX__zPlgCxnWnLryV2i/view?usp=sharing", stats: [{ label: "Issued", value: "Dec 2024" }, { label: "Type", value: "Internship" }] },
+    { name: "Basics of HTML/CSS for Beginners", logo: "/assets/logos/ss.jpg", Provider: "OpenWeaver", profileUrl: "https://drive.google.com/file/d/1iJ3C5EC0FvWwcW5EJgFudIjfVQw4uWd7/view?usp=sharing", stats: [{ label: "Issued", value: "May 2024" }, { label: "Type", value: "Beginner" }] },
   ], []);
 
   const highlights = useMemo(() => [
-    { text: "Solved over ", linkText: "900+ problems", href: "https://codolio.com/profile/shashank24", rest: " across multiple CP platforms, enhancing algorithmic thinking and coding efficiency." },
-    { text: "Participated in more than ", linkText: "100 contests", href: "https://codolio.com/profile/shashank24", rest: ", consistently testing and improving my problem-solving skills." },
-    { text: "Ranked among the top with a ", linkText: "Global Rank of 755", href: "https://codeforces.com/contest/2114/standings/participant/211255102#p211255102", rest: " in Codeforces Round 1027 (Div. 3)." },
-    { text: "Achieved a notable ", linkText: "Global Rank of 849", href: "https://codeforces.com/contest/2090/standings/participant/206688395#p206688395", rest: " in Codeforces Round 1012 (Div. 2)." },
-    { text: "Earned a ", linkText: "Top 100 finish (Rank 99)", href: "https://www.codechef.com/rankings/START154D?itemsPerPage=100&order=asc&page=1&sortBy=rank", rest: " in CodeChef Starters 154 (Div. 4)." },
-    { text: "Demonstrated strong performance with a ", linkText: "Global Rank of 120", href: "https://www.codechef.com/rankings/START187B?itemsPerPage=100&order=asc&page=1&sortBy=rank", rest: " in CodeChef Starters 187 (Div. 2)." },
+    { text: "Earned the ", linkText: "Google Data Analytics Professional Certificate", href: "https://coursera.org/share/19ea8531986abac81107bbed19894608", rest: " which covered data cleaning, visualization, and analysis using Excel, SQL, and R." },
+    { text: "Completed ", linkText: "Google's Prompting Essentials", href: "https://coursera.org/share/fa1d4d4f035e12f575d460bc13013a67", rest: " ,learned the fundamentals of crafting effective prompts for generative AI tools." },
+    { text: "Successfully finished a ", linkText: "2-month internship at InternnCraft", href: "https://drive.google.com/file/d/1bw_fAQ8huFrbDGX__zPlgCxnWnLryV2i/view?usp=sharing", rest: " as a WordPress Developer, working on live client projects and theme customization." },
+    { text: "Built multiple responsive websites using ", linkText: "WordPress,", rest: " including an LMS platform and an eCommerce fashion store, integrating plugins like TutorLMS and WooCommerce." },
+    { text: "Gained hands-on experience in hosting, domain setup, plugin integration, and user interface design. "},
+    { text: "Developed strong proficiency in ", linkText: "Elementor,",  rest: " custom theme modification, and WordPress admin workflows." },
   ], []);
 
   return (
@@ -113,12 +113,10 @@ function CompetitiveProgrammingComponent() {
           {/* --- THIS IS THE FIXED HEADING --- */}
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight flex flex-col sm:flex-row items-center sm:items-baseline justify-center gap-2 sm:gap-4 text-foreground text-center">
             <Swords className="w-8 h-8 text-primary drop-shadow-sm flex-shrink-0" />
-            <span>Competitive Programming</span>
+            <span>Certification</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            My competitive programming journey has been filled with challenging
-            problems, thrilling contests, and constant learning. Here you’ll find my
-            profiles, stats, and some highlights from major platforms.
+            My learning journey includes hands-on courses and certifications that reflect my dedication to web development, AI, and practical skills. Here are a few highlights.
           </p>
         </motion.div>
 
@@ -140,7 +138,7 @@ function CompetitiveProgrammingComponent() {
             </h3>
             <p className="text-base text-muted-foreground mb-4">
               <a href="https://codolio.com/profile/shashank24" className="text-primary hover:underline dark:hover:text-primary-foreground/70 transition font-medium" target="_blank" rel="noopener noreferrer">
-                View my Codolio Profile for more details
+              Here are some key highlights from my certification journey.
               </a>
             </p>
             <motion.ul

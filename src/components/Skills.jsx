@@ -86,10 +86,10 @@ SkillSection.displayName = "SkillSection";
 
 // --- Static Data (No changes needed) ---
 const SKILLS_SECTIONS = [
-    { icon: <Code className="w-6 h-6" />, title: "Programming Languages", tags: ["C", "C++", "Java", "JavaScript", "Python", "HTML", "CSS"] },
-    { icon: <Layers className="w-6 h-6" />, title: "Frameworks & Libraries", tags: ["React", "Tailwind CSS", "SFML", "NumPy", "Pandas"] },
-    { icon: <Terminal className="w-6 h-6" />, title: "Tools & Platforms", tags: ["Git", "GitHub", "VS Code", "Jupyter Notebook", "Sublime Text"] },
-    { icon: <Sparkles className="w-6 h-6" />, title: "Interests", tags: ["Competitive Programming", "DSA", "Machine Learning", "Web Development"] },
+    { icon: <Code className="w-6 h-6" />, title: "Web Development", tags: ["WordPress", "Elementor", "Woocommerce", "Tutor LMS", "Theme Customization", "Plugin Integration","Responsive Design"] },
+    { icon: <Layers className="w-6 h-6" />, title: "Programming", tags: ["Html", "CSS", "Java", "Python", "Php (Basic)"] },
+    { icon: <Terminal className="w-6 h-6" />, title: "Tools & Platforms", tags: ["Git", "GitHub", "VS Code", "Jupyter Notebook","Google Colab","Canva","XAMPP","Notion","MS Office"] },
+    { icon: <Sparkles className="w-6 h-6" />, title: "Interests", tags: ["WordPress & Web Customization", "AI in Real Life Applications", "Machine Learning", "Learning New Plugins & Tools"] },
 ];
 
 
@@ -116,9 +116,7 @@ const SkillsComponent = memo(function Skills() {
                 Skills & Interests
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
-                Here you'll find a snapshot of my technical toolkit and passions. I
-                believe in learning by doing, and my skills reflect a blend of academic
-                depth and hands-on project work.
+                Here you can see the range of skills I've developed through projects, practice, and learning.Each one reflects what I enjoy doing and continue to grow in.
             </p>
         </motion.div>
         

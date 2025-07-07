@@ -78,24 +78,34 @@ EducationCard.displayName = "EducationCard";
 // --- Static Data (No changes needed) ---
 const ACADEMICS_DATA = [
   {
-    logo: "/assets/logos/iit_bhu.png",
-    alt: "IIT BHU Logo",
-    title: "Indian Institute of Technology (BHU) Varanasi",
-    link: "https://iitbhu.ac.in/dept/civ",
-    program: "B.Tech in Civil Engineering",
-    year: "2023 – 2027",
+    logo: "/assets/logos/l.png",
+    alt: "Dawood University Logo",
+    title: "Dawood University of Engineering and Technology",
+    link: "https://duet.edu.pk/",
+    program: "Bachelor of Science in Artificial Intelligence",
+    year: "2021 – 2025",
     scoreLabel: "CGPA",
-    score: "8.14 / 10",
+    score: "3.8 / 4",
   },
   {
-    logo: "/assets/logos/sps_rohini.jpg",
-    alt: "SPS Rohini Logo",
-    title: "Sachdeva Public School, Rohini",
-    link: "https://www.spsrohini.com/",
-    program: "CBSE (Class XII - 2022, Class X - 2020)",
-    year: "2022",
+    logo: "/assets/logos/college.jpg",
+    alt: "College logo",
+    title: "Sindh Muslim Science College",
+    link: "https://www.smsciencecollege.pk/",
+    program: "Pre-engineering",
+    year: "2020-2021",
     scoreLabel: "Percentage",
-    score: "Class XII - 92.80%, Class X - 97.00%",
+    score: "72%",
+  },
+  {
+    logo: "/assets/logos/school.png",
+    alt: "DHACSS SKBZ Campus logo",
+    title: "DHACSS SKBZ Campus",
+    link: "https://skbzcampus.dhacsskarachi.edu.pk/",
+    program: "Computer Science",
+    year: "2019",
+    scoreLabel: "Percentage",
+    score: "82%",
   },
 ];
 
@@ -127,9 +137,7 @@ const AcademicsComponent = memo(function Academics() {
                 Education
             </h2>
             <motion.p variants={itemVariants} className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
-                My academic journey has been a blend of rigorous learning and practical
-                application, spanning general academics and engineering. Here are the
-                institutions and milestones that have shaped my foundation.
+                My academic journey has been a blend of focused learning and practical development from school to an AI-focused engineering degree. Here are the milestones that shaped my foundation.
             </motion.p>
         </motion.div>
 
