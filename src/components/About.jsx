@@ -131,7 +131,7 @@ export default memo(function About() {
             <span className="text-foreground font-medium">
               WordPress development
             </span>{" "}
-             I enjoy building modern, responsive websites, from eCommerce stores to online learning platforms. My journey combines hands-on experience in web development with core AI concepts like Python, machine learning, and chatbots.
+             ,I enjoy building modern, responsive websites, from eCommerce stores to online learning platforms. My journey combines hands-on experience in web development with core AI concepts like Python, machine learning, and chatbots.
           </p>
 
           <div className="flex flex-wrap gap-2 mb-4 justify-center md:justify-start">

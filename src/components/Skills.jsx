@@ -89,7 +89,7 @@ const SKILLS_SECTIONS = [
     { icon: <Code className="w-6 h-6" />, title: "Web Development", tags: ["WordPress", "Elementor", "Woocommerce", "Tutor LMS", "Theme Customization", "Plugin Integration","Responsive Design"] },
     { icon: <Layers className="w-6 h-6" />, title: "Programming", tags: ["Html", "CSS", "Java", "Python", "Php (Basic)"] },
     { icon: <Terminal className="w-6 h-6" />, title: "Tools & Platforms", tags: ["Git", "GitHub", "VS Code", "Jupyter Notebook","Google Colab","Canva","XAMPP","Notion","MS Office"] },
-    { icon: <Sparkles className="w-6 h-6" />, title: "Interests", tags: ["WordPress & Web Customization", "AI in Real Life Applications", "Machine Learning", "Learning New Plugins & Tools"] },
+    { icon: <Sparkles className="w-6 h-6" />, title: "Interests", tags: ["WordPress" ,"Web Customization", "AI in Real Life Applications", "Machine Learning", "Learning New Plugins & Tools"] },
 ];
 
 

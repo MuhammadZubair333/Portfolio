@@ -68,7 +68,8 @@ const ProjectCard = memo(({ project }) => {
         className="mt-auto inline-flex items-center justify-center px-4 py-2 bg-gray-100 text-gray-800 dark:bg-neutral-800 dark:text-gray-100 text-sm font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors duration-200"
 
       >
-        Watch Demo
+        {project.buttonText || "Watch Demo"}
+
       </a>
     </motion.div>
   );
@@ -101,6 +102,28 @@ function ProjectsComponent() {
       tags: ["WordPress", "E-Commerce", "Responsive Design"],
       image: "/assets/logos/sav.png",
       demoLink: "https://drive.google.com/file/d/1jD21-7PHnZkH6QexLKBRX5Bp3PHPsU0f/view?usp=sharing",
+    },
+    {
+      title: "Doctor AI",
+      desc: "Doctor AI is a virtual health assistant designed to provide users with AI-driven healthcare support. It helps users by offering medical consultations, medicine recommendations, doctor suggestions, emergency support, and health monitoring features.",
+      tags: ["NextJs", "Python", "Machine Learning", "AI Assistant", "Healthcare"],
+      image: "/assets/logos/di.png",
+      demoLink: "https://doctor-ai-chatbot.vercel.app/",
+    },
+    {
+      title: "Blood Bank Management System",
+      desc: "Developed during my WordPress internship, this project is a responsive Blood Bank Management System featuring role-based dashboards, real-time blood availability, and booking functionality. (Note: The live demo domain has expired.)",
+      tags: ["WordPress", "Elementor", "ACF", "Members Plugin", "CMS"],
+      image: "/assets/logos/bb.png",
+      demoLink: "https://drive.google.com/file/d/1Vi8wRNN9VQK3yvqSnneUQo_CAqyV_rNT/view?usp=sharing",
+      buttonText: "See Details"
+    },
+    {
+      title: "Movix",
+      desc: "Movix is a movie application I developed using React and SCSS.  It fetches real-time data from the TMDB API to display a wide range of movies and series and offers features like genre filters, sorting, and responsive UI for an enhanced browsing experience.",
+      tags: ["React", "SCSS", "TMDB API", "Movie App","Responsive UI","UI/UX"],
+      image: "/assets/logos/mov.png",
+      demoLink: "https://movix-watch.vercel.app/",
     },
   ],
   []
