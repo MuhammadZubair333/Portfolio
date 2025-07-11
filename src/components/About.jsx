@@ -51,7 +51,7 @@ const TAGS = [
 ];
 
 const RESUME_URL =
-  "https://drive.google.com/file/d/1gpf-Ni98KZTUbAcBxsHHb-vVeU-L6__-/view?usp=sharing";
+  "https://drive.google.com/file/d/1Q5Q9V1tdJeUlWn7EEOLGAwmg2CX3rUp5/view?usp=sharing";
 
 export default memo(function About() {
   const socialLinksElements = useMemo(
@@ -91,7 +91,7 @@ export default memo(function About() {
           aria-label="Profile photo of Muhammad Zubair"
         >
           <img
-            src="pp.jpg"
+            src="p.png"
             alt="Muhammad Zubair"
             loading="lazy"
             decoding="async"
